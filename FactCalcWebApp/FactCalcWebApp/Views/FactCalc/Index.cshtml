@@ -1,0 +1,42 @@
+﻿@model FactCalcWebApp.Models.FactCalcModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Factorial</h1>
+
+<dl>
+    <h4>Calculate Factorial of any number</h4>
+    <hr />
+    <form method="post">
+        <dl class="row">
+            <dt class="col-sm-2">
+                Enter Any Number
+            </dt>
+            <dd class="col-sm-10">
+                @Html.TextBoxFor(model => model.InputFactNumber, new { @type = "number" ,@required = "required" })
+            </dd>
+        </dl>
+        <dl class="row pl-5">
+            <dt class="pr-4">
+                <input type="submit" value="Calculate Factorial" />
+            </dt>
+            <dd>
+                <input type="button" value="Clear" onclick="Clear();" />
+            </dd>
+        </dl>
+        @if (Model != null)
+        {
+            <dl class="row" id="resultDiv">
+                <dt class="col-sm-2">
+                    Calculated Factorial 
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.OutputFactNumber)
+                </dd>
+            </dl>
+        }
+    </form>
+</dl>
+
